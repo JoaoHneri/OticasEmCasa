@@ -147,7 +147,7 @@ input:hover {
   cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 868px) {
   .formCreate {
     padding: 5vw;
   }
@@ -168,6 +168,14 @@ input:hover {
     width: 158px;
     height: 35px;
   }
+
+  .selectType {
+    width: 158px;
+    height: 35px; 
+
+   
+  }
+  
 
   .telInput {
     width: 158px;

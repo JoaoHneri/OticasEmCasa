@@ -228,7 +228,7 @@ export const Home = () => {
                   </div>
 
                   <div className="group">
-                    <label htmlFor="formaPagamento">Forma de Pagamento</label>
+                    <label htmlFor="formaPagamento">F.Pagamento</label>
                     <select
                       className="selectType"
                       value={formaPagamento}
@@ -241,7 +241,7 @@ export const Home = () => {
 
                   <div className="group">
                     <label htmlFor="infoAdicionais">
-                      Informações Adicionais
+                      Info. Adicionais
                     </label>
                     <textarea
                       className="input"
