@@ -251,7 +251,7 @@ export const Home = () => {
                   </div>
 
                   <div className="buttonBtn">
-                    <button type="submit" className="btn">
+                    <button type="submit" className="button">
                       Gerar Nota <FaRegFilePdf />
                     </button>
                   </div>

@@ -109,33 +109,35 @@ input:hover {
   padding: 40px 0px 0px 0px;
 }
 
-.btn{
-  background-color: #bb2d3b;
-  color: #FFF;
-}
-.btn:hover{
-  background-color: #8a1b26;
-  color: #FFF;
+.button {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #c91919;
+  transition: all 0.2s ease;
 }
 
+.button:hover{
+  background-color: #861919
+}
 
 
 .vendaCasada {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap ;
+  flex-wrap: wrap;
   width: 75%;
-
 }
 
-.oculosGroup{
+.oculosGroup {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 88%;
-  
 }
-
 
 .plus {
   margin-top: 40px;
@@ -179,9 +181,9 @@ input:hover {
     padding: 30px 0px 0px 0px;
   }
 
-  .plus{
+  .plus {
     align-self: flex-end;
-    font-size:25px;
+    font-size: 25px;
     cursor: pointer;
     width: 120px;
     display: flex;
@@ -190,26 +192,22 @@ input:hover {
   }
 
   .plus a {
-      align-items: start;
-      justify-content: flex-start;
-      padding: 0;
-      
+    align-items: start;
+    justify-content: flex-start;
+    padding: 0;
   }
-
 
   .vendaCasada {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     width: 100%;
-  
   }
-  
-  .oculosGroup{
+
+  .oculosGroup {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    
   }
 }
