@@ -3,7 +3,7 @@
   padding: 2vw;
   flex-direction: column;
   width: 100%;
-  min-height: 94vh;
+  min-height: 100vh;
   justify-content: center;
 }
 
@@ -109,6 +109,15 @@ input:hover {
   padding: 40px 0px 0px 0px;
 }
 
+.btn{
+  background-color: #bb2d3b;
+  color: #FFF;
+}
+.btn:hover{
+  background-color: #8a1b26;
+  color: #FFF;
+}
+
 
 
 .vendaCasada {
@@ -185,5 +194,22 @@ input:hover {
       justify-content: flex-start;
       padding: 0;
       
+  }
+
+
+  .vendaCasada {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+    width: 100%;
+  
+  }
+  
+  .oculosGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
   }
 }
