@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
 import { LiaGlassesSolid } from "react-icons/lia";
-import TelefoneBrasileiroInput from "react-telefone-brasileiro";
 import { FaFilePdf } from "react-icons/fa";
 import { FaRegFilePdf } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
@@ -19,7 +18,7 @@ export const Home = () => {
   const [infoAdicionais, setInfoAdicionais] = useState("");
 
   const generatePDF = (e) => {
-    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
     e.preventDefault();
     console.log("Função generatePDF está sendo chamada.");
 
@@ -105,18 +104,6 @@ export const Home = () => {
     pdfMake.createPdf(docDefinition).download();
   };
 
-  const handlePhone = (event) => {
-    let input = event.target;
-    input.value = phoneMask(input.value);
-  };
-
-  const phoneMask = (value) => {
-    if (!value) return "";
-    value = value.replace(/\D/g, "");
-    value = value.replace(/(\d{2})(\d)/, "($1) $2");
-    value = value.replace(/(\d)(\d{4})$/, "$1-$2");
-    return value;
-  };
 
   const handleAddField = () => {
     setCamposOculos((prevCamposOculos) => [...prevCamposOculos, { Armacao: "", Lente: "" }]);
@@ -151,14 +138,11 @@ export const Home = () => {
 
               <div className="group">
                 <label htmlFor="telefone_cliente">Telefone do Cliente</label>
-                <TelefoneBrasileiroInput
-                  className="telInput"
+                <input
+                  className="input"
                   value={telefone}
                   placeholder="(  ) __________ - ___________"
                   onChange={(e) => setTelefone(e.target.value)}
-                  separaNono
-                  temDDD
-                  separaDDD
                 />
               </div>
 
