@@ -1,0 +1,139 @@
+.HomeContent {
+  display: flex;
+  padding: 2vw;
+  flex-direction: column;
+  width: 100%;
+  min-height: 94vh;
+  justify-content: center;
+}
+
+.containerForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.formCreate {
+  box-shadow: 0px 2px 44px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 2px 44px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 44px 0px rgba(0, 0, 0, 0.75);
+  border: none  !important;
+  background-color: rgb(252, 252, 252);
+  justify-content: center;
+  padding: 2vw;
+  width: 900px;
+  border-radius: 20px;
+}
+
+.formSpace {
+  margin-top: 20px;
+}
+
+.TextApres{
+    font-weight: bolder;
+}
+.group {
+  display: flex;
+  flex-direction: column;
+  line-height: 30px;
+  margin-top: 10px;
+  position: relative;
+  max-width: 280px;
+  align-items: start;
+  
+  
+}
+
+.input {
+  width: 250px;
+  height: 35px;
+  line-height: 30px;
+  padding: 0 1rem;
+  border: 2px solid #e6e7e9;
+  border-radius: 10px;
+  outline: none;
+  background-color: #ffffff;
+  color: #0d0c22;
+  transition: 0.5s ease;
+}
+
+.input::placeholder {
+  color: #94a3b8;
+}
+
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: rgba(129, 140, 248);
+  background-color: #fff;
+  box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+}
+
+.inputSpace {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
+}
+
+.TextInfos {
+  margin: 25px 10px 0px 10px;
+}
+
+.selectType {
+  width: 250px;
+  height: 35px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  background-color: #ffffff;
+  color: #0d0c22;
+  padding: 0 1rem;
+}
+
+.buttonBtn {
+    display: flex;
+    justify-content: end;
+    width: 250px;
+    padding: 40px 0px 0px 0px;
+    
+  }
+
+
+@media screen and (max-width: 768px) {
+    .formCreate {
+      padding: 5vw;
+    }
+    
+    .input,
+    .selectType {
+      width: 100%;
+    }
+
+    .inputSpace {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .input {
+        width: 158px;
+        height: 35px;
+
+      }
+
+
+      .buttonBtn {
+        display: flex;
+        justify-content: start;
+        width: 250px;
+        padding: 30px 0px 0px 0px;
+        
+      }
+
+
+      
+      
+  }

@@ -1,0 +1,16 @@
+
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: url("./assets/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
