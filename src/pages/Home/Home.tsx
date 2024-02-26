@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import "./Home.css";
 import { LiaGlassesSolid } from "react-icons/lia";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
 import TelefoneBrasileiroInput from "react-telefone-brasileiro";
 import { FaFilePdf } from "react-icons/fa";
 import { FaRegFilePdf } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
-
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
 export const Home = () => {
   const [cliente, setCliente] = useState("");
@@ -21,6 +19,7 @@ export const Home = () => {
   const [infoAdicionais, setInfoAdicionais] = useState("");
 
   const generatePDF = (e) => {
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
     e.preventDefault();
     console.log("Função generatePDF está sendo chamada.");
 
