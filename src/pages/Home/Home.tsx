@@ -18,6 +18,7 @@ export const Home = () => {
   const [desconto, setDesconto] = useState("");
   const [formaPagamento, setFormaPagamento] = useState("");
   const [infoAdicionais, setInfoAdicionais] = useState("");
+  const [prazoDeEntrega, setPrazoDeEntrega] = useState("");
 
   const generatePDF = (e) => {
     e.preventDefault();
@@ -31,18 +32,19 @@ export const Home = () => {
       }`,
     }));
 
+    const clienteOt = cliente
     const discount = desconto;
     const price = valor;
-    const total = parseInt(valor, 10) - parseInt(desconto, 10);
+    const total = desconto ? parseInt(valor, 10) - parseInt(desconto, 10) : valor;
     const paymentStatus = formaPagamento;
-    const deliveryTime = "10 dias úteis";
+    const deliveryTime = prazoDeEntrega;
     const InfoAdd = infoAdicionais;
 
     // Construa o documento PDF
     const docDefinition = {
       content: [
         {
-          text: "Recibo de Compra - Ótica em Casa",
+          text: "Cupom de Compra - Ótica em Casa",
           style: "header",
         },
         {
@@ -50,13 +52,15 @@ export const Home = () => {
             headerRows: 1,
             widths: ["*", "auto"],
             body: [
+              
               [
                 { text: "Descrição", style: "tableHeader" },
                 { text: "Valor (R$)", style: "tableHeader" },
               ],
               ...purchaseDetails.map((item) => [item.item, ""]),
+              ["Cliente", { text: `${cliente}` }],
               ["Valor", { text: `${valor} R$` }],
-              ["Desconto", { text: `${discount} R$` }],
+              ["Desconto", { text: desconto ? `${discount} R$` : "0,00 R$" }],
               ["Total", { text: `${total} R$` }],
               ["Status de Pagamento", paymentStatus],
               ["Prazo de Entrega", deliveryTime],
@@ -239,6 +243,17 @@ export const Home = () => {
                     </select>
                   </div>
 
+                  <div className="group">
+                    <label htmlFor="prazoDeEntrega">
+                      Prazo De Entrega
+                    </label>
+                    <textarea
+                      className="input"
+                      value={prazoDeEntrega}
+                      onChange={(e) => setPrazoDeEntrega(e.target.value)}
+                    />
+
+                  </div>          
                   <div className="group">
                     <label htmlFor="infoAdicionais">
                       Info. Adicionais
