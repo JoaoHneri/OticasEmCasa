@@ -7,6 +7,8 @@ import { CiCirclePlus } from "react-icons/ci";
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 
+import { image64 } from "../../ImageBase64/image64";
+
 export const Home = () => {
   const [cliente, setCliente] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -57,13 +59,14 @@ export const Home = () => {
                 { text: "Descrição", style: "tableHeader" },
                 { text: "Valor (R$)", style: "tableHeader" },
               ],
-              ...purchaseDetails.map((item) => [item.item, ""]),
               ["Cliente", { text: `${cliente}` }],
-              ["Valor", { text: `${valor} R$` }],
+              ["Bairro", { text: `${bairro}` }],
+              ...purchaseDetails.map((item) => [item.item, ""]),
+              ["Valor", { text: valor ? `${valor} R$` : "0,00 R$" }],
               ["Desconto", { text: desconto ? `${discount} R$` : "0,00 R$" }],
               ["Total", { text: `${total} R$` }],
               ["Status de Pagamento", paymentStatus],
-              ["Prazo de Entrega", deliveryTime],
+              ["Prazo de Entrega", { text: `${deliveryTime} dias úteis`}],
               ["Informações Adicionais", InfoAdd],
             ],
           },
@@ -79,6 +82,12 @@ export const Home = () => {
           text: "Ótica em Casa - Transformando o jeito de enxergar o mundo!",
           style: "footer",
           alignment: "center",
+        },
+        {
+          image: image64.image64,  // Caminho relativo da imagem
+          width: 400,         // Largura da imagem
+          alignment: 'center', // Centraliza a imagem
+          margin: [0, 20],     // Adiciona margem após a imagem
         },
       ],
       styles: {
@@ -244,20 +253,15 @@ export const Home = () => {
                   </div>
 
                   <div className="group">
-                    <label htmlFor="prazoDeEntrega">
-                      Prazo De Entrega
-                    </label>
+                    <label htmlFor="prazoDeEntrega">Prazo De Entrega</label>
                     <textarea
                       className="input"
                       value={prazoDeEntrega}
                       onChange={(e) => setPrazoDeEntrega(e.target.value)}
                     />
-
-                  </div>          
+                  </div>
                   <div className="group">
-                    <label htmlFor="infoAdicionais">
-                      Info. Adicionais
-                    </label>
+                    <label htmlFor="infoAdicionais">Info. Adicionais</label>
                     <textarea
                       className="input"
                       value={infoAdicionais}
