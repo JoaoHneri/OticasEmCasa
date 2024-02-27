@@ -29,9 +29,9 @@ export const Home = () => {
     // Restante do código para gerar o PDF
 
     const purchaseDetails = camposOculos.map((oculos, index) => ({
-      item: `Óculos ${index + 1}: Armação - ${oculos.Armacao}, Lente - ${
-        oculos.Lente
-      }`,
+      item: `Óculos ${index + 1}: Armação - ${
+        oculos.Armacao ? oculos.Armacao : "Nenhum"
+      }, Lente - ${oculos.Lente ? oculos.Lente : "Nenhum"}`,
     }));
 
     const clienteOt = cliente
@@ -62,9 +62,9 @@ export const Home = () => {
               ["Cliente", { text: `${cliente}` }],
               ["Bairro", { text: `${bairro}` }],
               ...purchaseDetails.map((item) => [item.item, ""]),
-              ["Valor", { text: valor ? `${valor} R$` : "0,00 R$" }],
-              ["Desconto", { text: desconto ? `${discount} R$` : "0,00 R$" }],
-              ["Total", { text: `${total} R$` }],
+              ["Valor", { text: valor ? `R$ ${valor} ` : "R$ 0,00 " }],
+              ["Desconto", { text: desconto ? `R$ ${discount} ` : "R$ 0,00 " }],
+              ["Total", { text: `R$ ${total}` }],
               ["Status de Pagamento", paymentStatus],
               ["Prazo de Entrega", { text: `${deliveryTime} dias úteis`}],
               ["Informações Adicionais", InfoAdd],
