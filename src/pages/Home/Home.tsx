@@ -139,7 +139,7 @@ export const Home = () => {
         <div className="containerForm">
           <div className="formCreate">
             <h2 className="TextApres">
-              Novo Pedido <LiaGlassesSolid />
+              Novo Pedido<LiaGlassesSolid />
             </h2>
             <div className="formSpace">
               <form onSubmit={generatePDF}>
@@ -161,7 +161,7 @@ export const Home = () => {
                     <input
                       className="input"
                       value={telefone}
-                      placeholder="(  ) __________ - ___________"
+                      placeholder="(  ) __________- ___________"
                       onChange={(e) => setTelefone(e.target.value)}
                     />
                   </div>
