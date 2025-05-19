@@ -6,16 +6,18 @@ import { FaRegFilePdf } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
-
+import { CiCircleRemove } from "react-icons/ci";
 import { image64 } from "../../ImageBase64/image64";
 
 export const Home = () => {
   const [cliente, setCliente] = useState("");
   const [telefone, setTelefone] = useState("");
   const [bairro, setBairro] = useState("");
+
   const [camposOculos, setCamposOculos] = useState([
     { Armacao: "", Lente: "" },
   ]);
+
   const [valor, setValor] = useState("");
   const [desconto, setDesconto] = useState("");
   const [formaPagamento, setFormaPagamento] = useState("");
@@ -57,7 +59,7 @@ export const Home = () => {
               
               [
                 { text: "Descrição", style: "tableHeader" },
-                { text: "Valor (R$)", style: "tableHeader" },
+                { text: "Valor", style: "tableHeader" },
               ],
               ["Cliente", { text: `${cliente}` }],
               ["Bairro", { text: `${bairro}` }],
@@ -127,6 +129,12 @@ export const Home = () => {
     ]);
   };
 
+  const handleRemoveField = (indexToRemove: number) => {
+    if (camposOculos.length > 1) {
+      setCamposOculos(camposOculos.filter((_, idx) => idx !== indexToRemove));
+    }
+  };
+
   const handleOculosChange = (index, field, value) => {
     const newCamposOculos = [...camposOculos];
     newCamposOculos[index][field] = value;
@@ -180,42 +188,55 @@ export const Home = () => {
                 <div className="inputSpace">
                   <div className="vendaCasada">
                     {camposOculos.map((oculos, index) => (
-                      <div key={index} className="oculosGroup">
-                        <div className="group">
-                          <label htmlFor={`armacao_oculos_${index}`}>
-                            Armação {index + 1}
-                          </label>
-                          <input
-                            className="input"
-                            type="text"
-                            value={oculos.Armacao}
-                            onChange={(e) =>
-                              handleOculosChange(
-                                index,
-                                "Armacao",
-                                e.target.value
-                              )
-                            }
-                          />
+                      <React.Fragment key={index}>
+                        <div className="oculosGroup">
+                          <div className="group">
+                            <label htmlFor={`armacao_oculos_${index}`}>
+                              Armação {index + 1}
+                            </label>
+                            <input
+                              className="input"
+                              type="text"
+                              value={oculos.Armacao}
+                              onChange={(e) =>
+                                handleOculosChange(
+                                  index,
+                                  "Armacao",
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </div>
+                          <div className="group">
+                            <label htmlFor={`lente_oculos_${index}`}>
+                              Lente {index + 1}
+                            </label>
+                            <input
+                              className="input"
+                              type="text"
+                              value={oculos.Lente}
+                              onChange={(e) =>
+                                handleOculosChange(index, "Lente", e.target.value)
+                              }
+                            />
+                          </div>
                         </div>
-                        <div className="group">
-                          <label htmlFor={`lente_oculos_${index}`}>
-                            Lente {index + 1}
-                          </label>
-                          <input
-                            className="input"
-                            type="text"
-                            value={oculos.Lente}
-                            onChange={(e) =>
-                              handleOculosChange(index, "Lente", e.target.value)
-                            }
-                          />
-                        </div>
-                      </div>
+                        {index === camposOculos.length - 1 && (
+                          <a href="#">
+                            <CiCirclePlus className="plus" onClick={handleAddField} />
+                          </a>
+                        )}
+                        {camposOculos.length > 1 && (
+                          <a href="#">
+                            <CiCircleRemove
+                              className="remove"
+                              onClick={() => handleRemoveField(index)}
+                            />
+                          </a>
+                        )}
+                      </React.Fragment>
                     ))}
-                    <a href="#">
-                      <CiCirclePlus className="plus" onClick={handleAddField} />
-                    </a>
+                    
                   </div>
 
                   <div className="group">

@@ -139,13 +139,19 @@ input:hover {
   width: 88%;
 }
 
-.plus {
+.plus, .remove {
   margin-top: 40px;
   flex: 1;
   align-self: flex-start;
   font-size: 25px;
   cursor: pointer;
 }
+
+.remove{
+  color: #c91919;
+}
+
+
 
 @media screen and (max-width: 868px) {
   .formCreate {
